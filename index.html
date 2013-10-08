@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>pelmanism</title>
+	<style>
+		input {
+			font-size: 18px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Pelmanism</h1>
+	<p>Score: <span id="score"></span></p>
+	<input type="button" id="card_0" value="?" onclick="flip(0);">
+	<input type="button" id="card_0" value="?" onclick="flip(1);"><br>
+	<input type="button" id="card_0" value="?" onclick="flip(2);">
+	<input type="button" id="card_0" value="?" onclick="flip(3);">
+	<script>
+		// 0 0 1 1 => cards[0..3]
+
+		var cards = [],
+			CARD_NUM = 4;
+
+		function initCards() {
+			var num,
+				cardIndex;
+			for (var i = 0; i < CARD_NUM; i++) {
+				num = Math.floor(i / 2);
+				do {
+					cardIndex = Math.floor(Math.random() * CARD_NUM);
+				} while (typeof cards[cardIndex] !== 'undefined');
+				cards[cardIndex] = num;
+			}
+			console.log(cards);
+		}
+		initCards();
+
+	</script>
+
+</body>
+</html>
